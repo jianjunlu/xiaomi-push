@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/xiaomi-push.iml" filepath="$PROJECT_DIR$/.idea/xiaomi-push.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/xmpush.iml" filepath="$PROJECT_DIR$/.idea/xmpush.iml" />
     </modules>
   </component>
 </project>
