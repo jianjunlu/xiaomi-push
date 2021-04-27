@@ -20,10 +20,14 @@ type MiPush struct {
 	appSecret   string
 }
 
-func NewClient(appSecret string, packageName []string) *MiPush {
+func NewClient(appSecret string, cnHost bool, packageName []string) *MiPush {
+	host := ProductionHost
+	if !cnHost {
+		host = ProductionGlobalHost
+	}
 	return &MiPush{
 		packageName: packageName,
-		host:        ProductionHost,
+		host:        host,
 		appSecret:   appSecret,
 	}
 }
