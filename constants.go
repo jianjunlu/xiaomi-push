@@ -66,6 +66,11 @@ var (
 	PostRetryTimes = 3
 )
 
+type PushResultCode int
+const (
+	PushResultSuccess PushResultCode = iota
+)
+
 // for future targeted push
 var (
 	BrandsMap = map[string]string{
