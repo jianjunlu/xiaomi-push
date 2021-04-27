@@ -1,4 +1,4 @@
-module xmpush
+module github.com/jianjunlu/xmpush
 
 go 1.14
 
