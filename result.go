@@ -1,4 +1,4 @@
-package xiaomipush
+package xmpush
 
 type Result struct {
 	Result      string `json:"result"`

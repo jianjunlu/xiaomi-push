@@ -1,10 +1,28 @@
-package xiaomipush
+package xmpush
 
 const (
 	ProductionHost = "https://api.xmpush.xiaomi.com"
+	ProductionGlobalHost = "https://api.xmpush.global.xiaomi.com" //V4 服务器在国外时使用，支持同时发送消息到国内和海外
+)
+
+type PassthroughType int
+const (
+	PassthroughNormal PassthroughType = iota //普通通知消息
+	PassthroughDirect	//透传消息
+)
+
+type MessageNotifyType int
+const (
+	NotifyAll MessageNotifyType = iota -1
+	NotifyNone //未使用
+	NotifySound  // 使用默认提示音提示；
+	NotifyVibrate   // 使用默认震动提示；
+	NotifyNone2 //未使用
+	NotifyLights    // 使用默认led灯光提示；
 )
 
 const (
+	V4RegURL                             = "/v4/message/regid"                // 向某个regid或一组regid列表推送某条消息（支持同时发送消息到国内和海外）
 	RegURL                               = "/v3/message/regid"                // 向某个regid或一组regid列表推送某条消息
 	MultiMessagesRegIDURL                = "/v2/multi_messages/regids"        // 针对不同的regid推送不同的消息
 	MultiMessagesAliasURL                = "/v2/multi_messages/aliases"       // 针对不同的aliases推送不同的消息

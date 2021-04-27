@@ -1,4 +1,4 @@
-module xiaomi-push
+module xmpush
 
 go 1.14
 

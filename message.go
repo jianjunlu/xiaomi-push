@@ -1,4 +1,4 @@
-package xiaomipush
+package xmpush
 
 import (
 	"encoding/json"
@@ -12,8 +12,8 @@ type Message struct {
 	Payload               string            `json:"payload,omitempty"`                 // 消息内容payload
 	Title                 string            `json:"title,omitempty"`                   // 通知栏展示的通知的标题
 	Description           string            `json:"description,omitempty"`             // 通知栏展示的通知的描述
-	PassThrough           int32             `json:"pass_through"`                      // 是否通过透传的方式送给app，1表示透传消息，0表示通知栏消息。
-	NotifyType            int32             `json:"notify_type,omitempty"`             // DEFAULT_ALL = -1; DEFAULT_SOUND  = 1;   // 使用默认提示音提示 DEFAULT_VIBRATE = 2;   // 使用默认震动提示 DEFAULT_LIGHTS = 4;    // 使用默认led灯光提示
+	PassThrough           PassthroughType   `json:"pass_through"`                      // 是否通过透传的方式送给app，1表示透传消息，0表示通知栏消息。
+	NotifyType            MessageNotifyType `json:"notify_type,omitempty"`             // DEFAULT_ALL = -1; DEFAULT_SOUND  = 1;   // 使用默认提示音提示 DEFAULT_VIBRATE = 2;   // 使用默认震动提示 DEFAULT_LIGHTS = 4;    // 使用默认led灯光提示
 	TimeToLive            int64             `json:"time_to_live,omitempty"`            // 可选项。如果用户离线，设置消息在服务器保存的时间，单位：ms。服务器默认最长保留两周。
 	TimeToSend            int64             `json:"time_to_send,omitempty"`            // 可选项。定时发送消息。timeToSend是以毫秒为单位的时间戳。注：仅支持七天内的定时消息。
 	NotifyID              int64             `json:"notify_id"`                         // 可选项。默认情况下，通知栏只显示一条推送消息。如果通知栏要显示多条推送消息，需要针对不同的消息设置不同的notify_id（相同notify_id的通知栏消息会覆盖之前的）。
@@ -31,12 +31,12 @@ func (m *Message) SetRestrictedPackageName(restrictedPackageNames []string) *Mes
 }
 
 func (m *Message) SetPassThrough(passThrough int32) *Message {
-	m.PassThrough = passThrough
+	m.PassThrough = PassthroughType(passThrough)
 	return m
 }
 
 func (m *Message) SetNotifyType(notifyType int32) *Message {
-	m.NotifyType = notifyType
+	m.NotifyType = MessageNotifyType(notifyType)
 	return m
 }
 

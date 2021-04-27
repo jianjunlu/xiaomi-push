@@ -1,4 +1,4 @@
-package xiaomipush
+package xmpush
 
 import (
 	"testing"
