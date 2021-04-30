@@ -5,6 +5,20 @@ const (
 	ProductionGlobalHost = "https://api.xmpush.global.xiaomi.com" //V4 服务器在国外时使用，支持同时发送消息到国内和海外
 )
 
+const (
+	//ForegroundAlert 应用在前台弹出通知
+	ForegroundAlert = "1"
+	//ForegroundNoAlert 应用在前台不弹通知
+	ForegroundNoAlert = "0"
+
+	//NotifyEffectOpenApp 点击通知栏消息打开APP
+	NotifyEffectOpenApp = "1"
+	//NotifyEffectOpenActivity 点击通知栏消息打开应用内任一Activity（需要同时设置 extra.intent_uri）
+	NotifyEffectOpenActivity = "2"
+	//NotifyEffectOpenWebURI 点击通知栏消息打开网页（需要同时设置 extra.web_uri）
+	NotifyEffectOpenWebURI = "3"
+)
+
 type PassthroughType int
 const (
 	PassthroughNormal PassthroughType = iota //普通通知消息
